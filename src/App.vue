@@ -16,11 +16,22 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 body {
   padding: 0;
   margin: 0;
 }
+a {
+  text-decoration: none;
+  color: #34495e;
+}
+a:hover {
+  color: #42b883;
+}
+a.router-link-exact-active {
+  text-decoration: underline;
+}
+
 .page-enter-active,
 .page-leave-active {
   transition: opacity 0.5s;
