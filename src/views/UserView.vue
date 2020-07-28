@@ -1,16 +1,20 @@
 <template>
   <div>
-    <h1>USER</h1>
-    <p>name: {{ fetchUser.id}}</p>
-    <p>karma: {{ fetchUser.karma}}</p>
-    <p>created: {{ fetchUser.created}}</p>
-    <!-- <p v-for="item in fetchUser" :key="item.index">{{ item }}</p> -->
+    <user-profile :fetchUser="fetchUser">
+      <div slot="username">{{ fetchUser.id }}</div>
+      <span slot="time">{{'joined ' + fetchUser.created + ', '}}</span>
+      <span slot="karma">{{ fetchUser.karma }}</span>
+    </user-profile>
   </div>
 </template>
 
 <script>
+import UserProfile from "../components/UserProfile.vue";
 import { mapGetters } from "vuex";
 export default {
+  components: {
+    UserProfile,
+  },
   computed: {
     ...mapGetters(["fetchUser"]),
   },

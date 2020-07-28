@@ -1,15 +1,13 @@
 <template>
   <div class="header">
-      <router-link to="/news">NEWS11</router-link> |
-      <router-link to="/ask">ASK</router-link> |
-      <router-link to="/jobs">JOBS</router-link> 
+    <router-link to="/news">NEWS</router-link>|
+    <router-link to="/ask">ASK</router-link>|
+    <router-link to="/jobs">JOBS</router-link>
   </div>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style scoped>
@@ -19,10 +17,10 @@ export default {
   display: flex;
   padding: 8px;
 }
-.header .router-link-exact-active{
-  color: #35495e
+.header .router-link-exact-active {
+  color: #35495e;
 }
-.header a{
-  color: white
+.header a {
+  color: white;
 }
 </style>

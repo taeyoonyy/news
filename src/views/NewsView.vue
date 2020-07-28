@@ -1,20 +1,16 @@
 <template>
   <div>
-    <p v-for="item in this.$store.state.news" :key="item.index">
-      <a :href="item.url">{{ item.title }}</a>
-      <small>
-        {{ item.time_ago }} by
-        <router-link :to="`/user/${item.user}`">{{ item.user }}</router-link>
-      </small>
-    </p>
+    <list-item></list-item>
   </div>
 </template>
 
 <script>
+import ListItem from "../components/ListItem.vue";
 export default {
-  created() {
-    this.$store.dispatch("FETCH_NEWS"); // vue components에서 action을 호출하는게 dispatch
+  components: {
+    ListItem,
   },
+
   // async created() {
   //   const result = await fetchNewsList();
   //   this.users = result.data;
@@ -23,4 +19,5 @@ export default {
 };
 </script>
 
-<style></style>
+<style >
+</style>
