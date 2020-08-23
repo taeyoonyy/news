@@ -4,6 +4,7 @@ import {
   fetchAskList,
   fetchUserInfo,
   fetchItemInfo,
+  fetchList,
 } from '../api/index.js';
 
 export default {
@@ -11,9 +12,11 @@ export default {
     // console.log('context', context);
     // mutations을 위한 context
     fetchNewsList()
-      .then(({ data }) => {
-        console.log(data);
-        commit('SET_NEWS', data); //action에서 MUTATION으로 넘길 때 commit, response.data도 넘긴다.
+      .then(response => {
+        console.log('response.data', response.data);
+        commit('SET_NEWS', response.data); //action에서 MUTATION으로 넘길 때 commit, response.data도 넘긴다.
+        console.log('response before', response)
+        return response
       })
       .catch((error) => console.log(error));
   },
@@ -49,4 +52,12 @@ export default {
       })
       .catch((error) => console.log(error));
   },
+  FETCH_LIST ({ commit }, pageName) {
+    fetchList(pageName)
+    .then(({ data }) => {
+      console.log(data);
+      commit('SET_LIST', data);
+    })
+    .catch((error) => console.log(error));
+  }
 };

@@ -11,6 +11,7 @@ export const store = new Vuex.Store({
     ask: [],
     user: {}, // 하나니까 객체로
     item: {},
+    list: [],
   },
   getters: {
     fetchAsk(state) {

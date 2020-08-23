@@ -28,26 +28,27 @@
 export default {
   computed: {
     listItems() {
-      const name = this.$route.name;
-      if (name === "news") {
-        return this.$store.state.news;
-      } else if (name === "ask") {
-        return this.$store.state.ask;
-      } else {
-        return this.$store.state.jobs;
+      return this.$store.state.list
+      // const name = this.$route.name;
+      // if (name === "news") {
+      //   return this.$store.state.news;
+      // } else if (name === "ask") {
+      //   return this.$store.state.ask;
+      // } else {
+      //   return this.$store.state.jobs;
       }
     },
-  },
-  created() {
-    const name = this.$route.name;
-    if (name === "news") {
-      this.$store.dispatch("FETCH_NEWS"); // vue components에서 action을 호출하는게 dispatch
-    } else if (name === "ask") {
-      this.$store.dispatch("FETCH_ASK");
-    } else if (name === "jobs") {
-      this.$store.dispatch("FETCH_JOBS");
-    }
-  },
+  // },
+  // created() {
+  //   const name = this.$route.name;
+  //   if (name === "news") {
+  //     this.$store.dispatch("FETCH_NEWS"); // vue components에서 action을 호출하는게 dispatch
+  //   } else if (name === "ask") {
+  //     this.$store.dispatch("FETCH_ASK");
+  //   } else if (name === "jobs") {
+  //     this.$store.dispatch("FETCH_JOBS");
+  //   }
+  // },
 };
 </script>
 

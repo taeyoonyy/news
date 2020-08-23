@@ -20,6 +20,7 @@
 
 <script>
 import ListItem from "../components/ListItem.vue";
+import bus from "../utils/bus.js";
 // import { fetchJobsList } from '../api/index.js';
 export default {
   components: {
@@ -30,12 +31,20 @@ export default {
   // //     users: [],
   // //   };
   // // },
-  // created() {
-  //   this.$store.dispatch("FETCH_JOBS");
-  //   // fetchJobsList()
-  //   //   .then((response) => (this.users = response.data))
-  //   //   .catch((error) => console.log(error));
-  // },
+  created() {
+    bus.$emit("start:spinner");
+    setTimeout(() => {
+      this.$store.dispatch("FETCH_JOBS")
+      .then((response) => {
+        console.log("end:spinner");
+        console.log(response)
+        bus.$emit("end:spinner");
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+    },3000)
+  },
 };
 </script>
 
